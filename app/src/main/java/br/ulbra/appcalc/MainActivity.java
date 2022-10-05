@@ -1,8 +1,11 @@
 package br.ulbra.appcalc;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,88 +14,49 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edtValor1, edtValor2;
-    Button btnSomar, btnSubtrair, btnMultiplicar, btnDividir;
+    EditText edtNomeAluno, edtDisciplina, edtNAulas, edtNFaltas, edtNota1, edtNota2;
+    Button btnResultado, btnLimpar;
+    static boolean isAprovado = true;
 
-    public double somar(double valor1, double valor2) {
-        double resultado = valor1 + valor2;
-        return resultado;
+
+    public double calcularMedia(double nota1, double nota2){
+        double media = ((nota1*2) + (nota2*4)) / 6;
+        return media;
     }
 
-    public double subtrair(double valor1, double valor2) {
-        double resultado = valor1 - valor2;
-        return resultado;
-    }
-
-    public double multiplicar(double valor1, double valor2) {
-        double resultado = valor1 * valor2;
-        return resultado;
-    }
-
-    public double dividir(double valor1, double valor2) {
-        double r=0;
-        try {
-            r = valor1 / valor2;
-        } catch (ArithmeticException e) {
-            Toast.makeText(this, "Erro: "+e.getMessage(), Toast.LENGTH_SHORT).show();
-
-        }
-        return r;
+    public int calcularFrequencia(double quantidadeAulas, double quantidadeFaltas){
+        int frequencia = (int) ((quantidadeAulas-quantidadeFaltas)/quantidadeAulas) * 100;
+        return frequencia;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        edtValor1 = findViewById(R.id.edtValor1);
-        edtValor2 = findViewById(R.id.edtValor2);
-        btnSomar = findViewById(R.id.btnSomar);
-        btnSubtrair = findViewById(R.id.btnSubtrair);
-        btnMultiplicar = findViewById(R.id.btnMultiplicar);
-        btnDividir = findViewById(R.id.btnDividir);
-        btnSomar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText
-                        (MainActivity.this,
-                                "Soma: " + somar(Double.parseDouble(edtValor1.getText().toString()),
-                                        Double.parseDouble(edtValor2.getText().toString())),
-                                Toast.LENGTH_SHORT).show();
-            }
-        });
+        edtDisciplina = findViewById(R.id.edtDisciplina);
+        edtNomeAluno = findViewById(R.id.edtNome);
+        edtNAulas = findViewById(R.id.edtNumeroAulas);
+        edtNFaltas = findViewById(R.id.edtNumeroFaltas);
+        edtNota1 = findViewById(R.id.edtNota1);
+        edtNota2 = findViewById(R.id.edtNota2);
+        btnLimpar = findViewById(R.id.btnLimpar);
+        btnResultado = findViewById(R.id.btnResultado);
 
-        btnSubtrair.setOnClickListener(new View.OnClickListener() {
+        btnResultado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText
-                        (MainActivity.this,
-                                "Subtração: " + subtrair(Double.parseDouble(edtValor1.getText().toString()),
-                                        Double.parseDouble(edtValor2.getText().toString())),
-                                Toast.LENGTH_SHORT).show();
+                isAprovado = calcularFrequencia(Double.parseDouble(edtNAulas.toString()),
+                        Double.parseDouble(edtNFaltas.toString())) > 75
+                        && calcularMedia(Double.parseDouble(edtNota1.toString()),
+                        Double.parseDouble(edtNota2.toString())) >= 7.0;
+              if(isAprovado){
+                  Toast.makeText(MainActivity.this, "Parabéns, você foi aprovado :)", Toast.LENGTH_SHORT).show();
+                } else {
+                  Toast.makeText(MainActivity.this, "Parabéns, você foi reprovado :(", Toast.LENGTH_SHORT).show();
+              }
             }
-        });
-        btnMultiplicar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText
-                        (MainActivity.this,
-                                "Multiplicação: " + multiplicar(Double.parseDouble(edtValor1.getText().toString()),
-                                        Double.parseDouble(edtValor2.getText().toString())),
-                                Toast.LENGTH_SHORT).show();
-            }
-        });
-        btnDividir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText
-                        (MainActivity.this,
-                                "Divisão: " + dividir(Double.parseDouble(edtValor1.getText().toString()),
-                                        Double.parseDouble(edtValor2.getText().toString())),
-                                Toast.LENGTH_SHORT).show();
-            }
-        });
 
+        });
     }
-
 
 }

@@ -7,4 +7,9 @@
     <string name="subtrair">SUBTRAIR</string>
     <string name="multiplicar">MULTIPLICAR</string>
     <string name="dividir">DIVIDIR</string>
+    <string name="app_escolar">APP ESCOLAR</string>
+    <string name="resultado">RESULTADO</string>
+    <string name="limpar">LIMPAR</string>
+    <string name="cardResultado">Resultado</string>
+    <string name="cardTitulo">Resultado:</string>
 </resources>

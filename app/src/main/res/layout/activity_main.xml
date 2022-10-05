@@ -8,11 +8,11 @@
 
     <TextView
         android:textSize="30sp"
-        android:id="@+id/txtCalculadora"
+        android:id="@+id/txtTitulo"
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:text="CALCULADORA"
+        android:text="@string/app_escolar"
         android:textColor="@color/white"
         android:textFontWeight="@integer/material_motion_duration_short_2"
         android:fontFamily="sans-serif-condensed"
@@ -28,108 +28,124 @@
         android:paddingRight="20dp"
         />
 
-    <TextView
-        android:textSize="20sp"
-        android:id="@+id/txtValor1"
+    <EditText
+        android:id="@+id/edtNome"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/txtTitulo"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Nome completo"
+        android:textColorHint="@color/white"
+        android:paddingLeft="10dp"
+        android:inputType="text"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/teal_700"
+
+        />
+
+    <EditText
+        android:id="@+id/edtDisciplina"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/edtNome"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Disciplina"
+        android:inputType="text"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/teal_700"
+        android:textColorHint="@color/white"
+        android:paddingLeft="10dp"
+        />
+
+    <EditText
+        android:id="@+id/edtNumeroAulas"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/edtDisciplina"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Número de aulas"
+        android:inputType="number"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/teal_700"
+        android:textColorHint="@color/white"
+        android:paddingLeft="10dp"
+        />
+
+    <EditText
+        android:id="@+id/edtNumeroFaltas"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/edtNumeroAulas"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/teal_700"
+        android:hint="Número de faltas"
+        android:inputType="numberDecimal"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/edtNota1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/edtNumeroFaltas"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Nota 1"
+        android:inputType="numberDecimal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/teal_700"
+        android:textColorHint="@color/white"
+        android:paddingLeft="10dp"
+        />
+
+    <EditText
+        android:id="@+id/edtNota2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/edtNota1"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Nota 2"
+        android:inputType="numberDecimal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/teal_700"
+        android:textColorHint="@color/white"
+        android:paddingLeft="10dp"
+        />
+
+    <Button
+        android:id="@+id/btnResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/valor_1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_below="@id/txtCalculadora"
+        android:layout_below="@id/edtNota2"
+        android:text="@string/resultado"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        />
-
-    <EditText
-        android:id="@+id/edtValor1"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@+id/txtValor1"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="20dp"
-        android:hint="Informe o primeiro valor"
-        android:inputType="numberDecimal"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/teal_700"
 
         />
 
-    <TextView
-        android:textSize="20sp"
-        android:id="@+id/txtValor2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/valor_2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_below="@+id/edtValor1"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
-    <EditText
-        android:id="@+id/edtValor2"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@+id/txtValor2"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="50dp"
-        android:hint="Informe o primeiro valor"
-        android:inputType="numberDecimal"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/teal_700"
-        />
     <Button
-        android:id="@+id/btnSomar"
+        android:id="@+id/btnLimpar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtValor2"
-        android:text="@string/somar"
+        android:layout_below="@id/btnResultado"
+        android:text="@string/limpar"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         />
-
-    <Button
-        android:id="@+id/btnSubtrair"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnSomar"
-        android:text="@string/subtrair"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        />
-    <Button
-        android:id="@+id/btnMultiplicar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnSubtrair"
-        android:text="@string/multiplicar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        />
-    <Button
-        android:id="@+id/btnDividir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnMultiplicar"
-        android:text="@string/dividir"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        />
-
 
 </RelativeLayout>
